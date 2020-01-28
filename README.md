@@ -1,4 +1,6 @@
 # README #
+
+On Git Workflow
 http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
 
  - git checkout -b NUMBER_BRANCH_DESCRIPTION
@@ -7,3 +9,7 @@ http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html
  - git checkout master
  - git merge NUMBER_BRANCH_DESCRIPTION
  - git push origin master // Send everything back to github
+
+Trello Board location: https://trello.com/b/dTYGFKch/alli-board
+
+Google Drive location: TBD
