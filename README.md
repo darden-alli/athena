@@ -15,4 +15,4 @@ https://www.atlassian.com/agile/software-development/git
 
 Trello Board location: https://trello.com/b/dTYGFKch/alli-board
 
-Google Drive location: TBD
+Google Drive location: https://teams.microsoft.com/_#/school/files/General?threadId=19%3A324646f87d5245a7affb52a112f2572e%40thread.skype&ctx=channel&context=Digital%2520Capstone&rootfolder=%252Fsites%252FStartupdreamteam%252FShared%2520Documents%252FGeneral%252FDigital%2520Capstone
