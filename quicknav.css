@@ -6,93 +6,120 @@
   font-family: Poppins;
 }
 .qcard{
-  /* border: solid; */
-  position: absolute;
-  text-align: center;
-  background-color: #f4f4f4;
-}
-
-.qoptions{
-  display: flex; /* declare qoptions as a flexbox */
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-#card_police{
-  z-index: 0;
-}
-
-#card_injury{
-  visibility: hidden;
-  z-index: 1;
-}
-
-#card_shelter{
-  visibility: hidden;
-  z-index: 2;
-}
-
-#card_legal{
-  visibility: hidden;
-  z-index: 3;
-}
-
-#card_university{
-  visibility: hidden;
-  z-index: 4;
-}
-.reset_nav{
-  display: flex;
-  z-index: 6;
-}
-
-.myButton {
-	box-shadow:inset 0px 1px 0px 0px #97c4fe;
-	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
-	background-color:#3d94f6;
-	border-radius:6px;
-	border:1px solid #337fed;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #1570cd;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
-	background-color:#1e62d0;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-.backButton {
-	box-shadow:inset 0px 1px 0px 0px #fff6af;
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	background-color:#ffec64;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffee66;
-}
-.backButton:hover {
-	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	background-color:#ffab23;
-}
-.backButton:active {
-	position:relative;
-	top:1px;
-}
-
+	/* border: solid; */
+	position: static;
+	text-align: center;
+	border-bottom: 4px #FEC76D solid;
+	font-size: 36px;
+	font-family: Poppins;
+  }
+  
+  .qoptions{
+	display: flex; /* declare qoptions as a flexbox */
+	flex-wrap: nowrap;
+	justify-content: center;
+  }
+  
+  #card_police{
+	visibility: hidden;
+	z-index: 2;
+  }
+  
+  #card_injury{
+	visibility: hidden;
+	z-index: 1;
+  }
+  
+  #card_shelter{
+	z-index: 0;
+  }
+  
+  #card_university{
+	visibility: hidden;
+	z-index: 3;
+  }
+  #card_hotline{
+	visibility: hidden;
+	font-size: 20px !important;
+	z-index: 4;
+  }
+  .reset_nav{
+	display: flex;
+	z-index: 6;
+	justify-content: center;
+  }
+  
+  .myButton {
+	  box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	  background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	  background-color:#3d94f6;
+	  border-radius:6px;
+	  border:1px solid #337fed;
+	  display:inline-block;
+	  cursor:pointer;
+	  color:#ffffff;
+	  font-family:Arial;
+	  font-size:15px;
+	  font-weight:bold;
+	  padding:6px 24px;
+	  text-decoration:none;
+	  text-shadow:0px 1px 0px #1570cd;
+	margin: 3px;
+  }
+  .myButton:hover {
+	  background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	  background-color:#1e62d0;
+  }
+  .myButton:active {
+	  position:relative;
+	  top:1px;
+  }
+  
+  .backButton {
+	  box-shadow:inset 0px 1px 0px 0px #fff6af;
+	  background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	  background-color:#ffec64;
+	  border-radius:6px;
+	  border:1px solid #ffaa22;
+	  display:inline-block;
+	  cursor:pointer;
+	  color:#333333;
+	  font-family:Arial;
+	  font-size:15px;
+	  font-weight:bold;
+	  padding:6px 24px;
+	  text-decoration:none;
+	  text-shadow:0px 1px 0px #ffee66;
+	margin: 3px;
+  }
+  .backButton:hover {
+	  background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	  background-color:#ffab23;
+  }
+  .backButton:active {
+	  position:relative;
+	  top:1px;
+  }
+  
+  .navbar {
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	
+	background-color: #FEC76D;
+	
+	position: fixed;
+	top: 0;
+	width: 100%;
+  }
+  
+  .navbar a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+  }
+  

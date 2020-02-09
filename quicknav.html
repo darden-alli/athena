@@ -1,15 +1,34 @@
 <head>
-    <link rel="stylesheet" href="quicknav.css">
-    <script src="quicknav.js"></script>
+  <link rel="stylesheet" href="quicknav.css" 
+      type="text/css"> 
+  <script src="quicknav.js"></script>
 </head>
 
-<div class="card_canvas">
 
-  <div class="reset_nav">
-    <button class="backButton" id="6.1" onclick="reset()">Reset</button>
+<div class="navbar">
+  <button class="backButton" id="ShelterGo" onclick="navdisp(id)">Q1: Shelter</button>
+  <button class="backButton" id="PoliceGo" onclick="navdisp(id)">Q2: Police</button>
+  <button class="backButton" id="MedicalGo" onclick="navdisp(id)">Q3: Medical</button>
+  <button class="backButton" id="UniversityGo" onclick="navdisp(id)">Q4: University</button>
+  <button class="myButton" id="6.1" onclick="reset()">Reset All</button>
+</div>
+
+<div id="card_canvas">
+
+  <!--Question 1 Shelter-->
+  <div class="qcard" id="card_shelter">
+    <br>
+    <p>
+      Are you in a safe place right now?
+    </p>
+
+    <div class="qoptions">
+      <button class="myButton" id="1.1" onclick="hidedisp(id)">Yes.</button>
+      <button class="myButton" id="1.2" onclick="hidedisp(id)">No.</button>
+    </div>
   </div>
 
-  <!--Question 1 Police-->
+  <!--Question 2 Police-->
   <div class="qcard" id="card_police">
     <br>
     <p>
@@ -17,46 +36,33 @@
     </p>
 
     <div class="qoptions">
-      <button class="myButton" id="1.1" onclick="hidedisp(id)">Yes.</button>
-      <button class="myButton" id="1.2" onclick="hidedisp(id)">Yes, but not now.</button>
-      <button class="myButton" id="1.3" onclick="hidedisp(id)">No.</button>
-    </div>
-  </div>
-
-  <!--Question 2 Injury-->
-  <div class="qcard" id="card_injury">
-    <br>
-    <p>
-      Are you injured?
-    </p>
-
-    <div class="qoptions">
       <button class="myButton" id="2.1" onclick="hidedisp(id)">Yes.</button>
-      <button class="myButton" id="2.2" onclick="hidedisp(id)">I'm not sure.</button>
+      <button class="myButton" id="2.2" onclick="hidedisp(id)">Yes, but not now.</button>
       <button class="myButton" id="2.3" onclick="hidedisp(id)">No.</button>
       <button class="backButton" id="2.4" onclick="goback(id)">Back</button>
     </div>
   </div>
 
-  <!--Question 3 Shelter-->
-  <div class="qcard" id="card_shelter">
+  <!--Question 3 Injury-->
+  <div class="qcard" id="card_injury">
     <br>
     <p>
-      Do you want to stay at a shelter?
+      Do you need medical attention?
     </p>
 
     <div class="qoptions">
       <button class="myButton" id="3.1" onclick="hidedisp(id)">Yes.</button>
-      <button class="myButton" id="3.2" onclick="hidedisp(id)">No.</button>
+      <button class="myButton" id="3.2" onclick="hidedisp(id)">I'm not sure.</button>
+      <button class="myButton" id="3.3" onclick="hidedisp(id)">No.</button>
       <button class="backButton" id="3.4" onclick="goback(id)">Back</button>
     </div>
   </div>
 
-  <!--Question 4 Legal-->
-  <div class="qcard" id="card_legal">
+  <!--Question 4 University-->
+  <div class="qcard" id="card_university">
     <br>
     <p>
-      Do you want to take legal action?
+      Do you want to open a university investigation?
     </p>
 
     <div class="qoptions">
@@ -66,21 +72,14 @@
       <button class="backButton" id="4.4" onclick="goback(id)">Back</button>
     </div>
   </div>
+ </div>
 
-  <!--Question 5 University-->
-  <div class="qcard" id="card_university">
-    <br>
-    <p>
-      Do you want to open a university investigation?
-    </p>
-
-    <div class="qoptions">
-      <button class="myButton" id="5.1" onclick="hidedisp(id)">Yes.</button>
-      <button class="myButton" id="5.2" onclick="hidedisp(id)">Maybe or unsure.</button>
-      <button class="myButton" id="5.3" onclick="hidedisp(id)">No.</button>
-      <button class="backButton" id="5.4" onclick="goback(id)">Back</button>
-    </div>
-  </div>
+<div class="qcard" id="card_hotline">
+<p>
+If you still have any unaswered questions, the Sexual Assault Resource Agency (SARA) runs a 24/7 hotline, operated by trained confidential advocates.
+<br><br>
+<b>434-977-7273</b>
+<br><br>
+<button class="myButton" id="sendArr" onclick="sendTo()">My Report</button>
+</p>
 </div>
-
-
