@@ -117,6 +117,7 @@ function sendTo() {
 //Pass QN Array
   localStorage.setItem("qn_arr", JSON.stringify(qn_arr));
   console.log(localStorage);
+  window.location = "qn_report.html"; 
 }
 
 
