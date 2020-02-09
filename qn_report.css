@@ -11,6 +11,8 @@
 	position: static;
 	text-align: center;
 	border-bottom: 4px #FEC76D solid;
-	font-size: 36px;
-	font-family: Poppins;
+	font-size: 30px;
+    font-family: Poppins;
+    justify-content: space-evenly;
+    align-items: center;
   }

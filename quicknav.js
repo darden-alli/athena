@@ -44,13 +44,15 @@ function hidedisp(id) {
     //Pass Medical if not in pass array
     if (qn_arr.includes("Medical") == false){
     qn_arr.push("Medical");
+    qn_arr.push("Emergency");
     console.log(qn_arr);
     }
     
   } else if (id == "3.2" || id == "3.3") {
     //Not sure, No Medical Attention
     alert("Not all injuries are visible and you should still seek medical attention.");
-
+    
+    qn_arr.push("Medical");
     //var gp = document.getElementById(id).parentNode.parentNode.id;
     //document.getElementById(gp).style.visibility = "hidden";
     card_university.style.visibility = "visible";
