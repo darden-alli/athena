@@ -1,11 +1,34 @@
 <html>
-<div class="card_canvas">
 
-  <div class="reset_nav">
-    <button class="backButton" id="6.1" onclick="reset()">Reset</button>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+
+<div class="navbar">
+  <button class="backButton" id="ShelterGo" onclick="navdisp(id)">Q1: Shelter</button>
+  <button class="backButton" id="PoliceGo" onclick="navdisp(id)">Q2: Police</button>
+  <button class="backButton" id="MedicalGo" onclick="navdisp(id)">Q3: Medical</button>
+  <button class="backButton" id="UniversityGo" onclick="navdisp(id)">Q4: University</button>
+  <button class="myButton" id="6.1" onclick="reset()">Reset All</button>
+</div>
+
+<div id="card_canvas">
+
+  <!--Question 1 Shelter-->
+  <div class="qcard" id="card_shelter">
+    <br>
+    <p>
+      Are you in a safe place right now?
+    </p>
+
+    <div class="qoptions">
+      <button class="myButton" id="1.1" onclick="hidedisp(id)">Yes.</button>
+      <button class="myButton" id="1.2" onclick="hidedisp(id)">No.</button>
+    </div>
   </div>
 
-  <!--Question 1 Police-->
+  <!--Question 2 Police-->
   <div class="qcard" id="card_police">
     <br>
     <p>
@@ -13,46 +36,33 @@
     </p>
 
     <div class="qoptions">
-      <button class="myButton" id="1.1" onclick="hidedisp(id)">Yes.</button>
-      <button class="myButton" id="1.2" onclick="hidedisp(id)">Yes, but not now.</button>
-      <button class="myButton" id="1.3" onclick="hidedisp(id)">No.</button>
-    </div>
-  </div>
-
-  <!--Question 2 Injury-->
-  <div class="qcard" id="card_injury">
-    <br>
-    <p>
-      Are you injured?
-    </p>
-
-    <div class="qoptions">
       <button class="myButton" id="2.1" onclick="hidedisp(id)">Yes.</button>
-      <button class="myButton" id="2.2" onclick="hidedisp(id)">I'm not sure.</button>
+      <button class="myButton" id="2.2" onclick="hidedisp(id)">Yes, but not now.</button>
       <button class="myButton" id="2.3" onclick="hidedisp(id)">No.</button>
       <button class="backButton" id="2.4" onclick="goback(id)">Back</button>
     </div>
   </div>
 
-  <!--Question 3 Shelter-->
-  <div class="qcard" id="card_shelter">
+  <!--Question 3 Injury-->
+  <div class="qcard" id="card_injury">
     <br>
     <p>
-      Do you want to stay at a shelter?
+      Do you need medical attention?
     </p>
 
     <div class="qoptions">
       <button class="myButton" id="3.1" onclick="hidedisp(id)">Yes.</button>
-      <button class="myButton" id="3.2" onclick="hidedisp(id)">No.</button>
+      <button class="myButton" id="3.2" onclick="hidedisp(id)">I'm not sure.</button>
+      <button class="myButton" id="3.3" onclick="hidedisp(id)">No.</button>
       <button class="backButton" id="3.4" onclick="goback(id)">Back</button>
     </div>
   </div>
 
-  <!--Question 4 Legal-->
-  <div class="qcard" id="card_legal">
+  <!--Question 4 University-->
+  <div class="qcard" id="card_university">
     <br>
     <p>
-      Do you want to take legal action?
+      Do you want to open a university investigation?
     </p>
 
     <div class="qoptions">
@@ -62,25 +72,20 @@
       <button class="backButton" id="4.4" onclick="goback(id)">Back</button>
     </div>
   </div>
+ </div>
 
-  <!--Question 5 University-->
-  <div class="qcard" id="card_university">
-    <br>
-    <p>
-      Do you want to open a university investigation?
-    </p>
-
-    <div class="qoptions">
-      <button class="myButton" id="5.1" onclick="hidedisp(id)">Yes.</button>
-      <button class="myButton" id="5.2" onclick="hidedisp(id)">Maybe or unsure.</button>
-      <button class="myButton" id="5.3" onclick="hidedisp(id)">No.</button>
-      <button class="backButton" id="5.4" onclick="goback(id)">Back</button>
-    </div>
-  </div>
+<div class="qcard" id="card_hotline">
+<p>
+If you still have any unaswered questions, the Sexual Assault Resource Agency (SARA) runs a 24/7 hotline, operated by trained confidential advocates.
+<br><br>
+<b>434-977-7273</b>
+<br><br>
+<button class="myButton" id="sendArr" onclick="sendTo()">My Report</button>
+</p>
 </div>
 
 <style>
-.card_canvas{
+  .card_canvas{
   position: static;
   display: flex;
   justify-content: space-evenly;
@@ -88,186 +93,254 @@
   font-family: Poppins;
 }
 .qcard{
-  /* border: solid; */
-  position: absolute;
-  text-align: center;
-}
-
-.qoptions{
-  display: flex; /* declare qoptions as a flexbox */
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-#card_police{
-  z-index: 0;
-}
-
-#card_injury{
-  visibility: hidden;
-  z-index: 1;
-}
-
-#card_shelter{
-  visibility: hidden;
-  z-index: 2;
-}
-
-#card_legal{
-  visibility: hidden;
-  z-index: 3;
-}
-
-#card_university{
-  visibility: hidden;
-  z-index: 4;
-}
-.reset_nav{
-  display: flex;
-  z-index: 6;
-}
-
-.myButton {
-	box-shadow:inset 0px 1px 0px 0px #97c4fe;
-	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
-	background-color:#3d94f6;
-	border-radius:6px;
-	border:1px solid #337fed;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #1570cd;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
-	background-color:#1e62d0;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-.backButton {
-	box-shadow:inset 0px 1px 0px 0px #fff6af;
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	background-color:#ffec64;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffee66;
-}
-.backButton:hover {
-	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	background-color:#ffab23;
-}
-.backButton:active {
-	position:relative;
-	top:1px;
-}
-
+	/* border: solid; */
+	position: static;
+	text-align: center;
+	border-bottom: 4px #FEC76D solid;
+	font-size: 36px;
+	font-family: Poppins;
+  }
+  
+  .qoptions{
+	display: flex; /* declare qoptions as a flexbox */
+	flex-wrap: nowrap;
+	justify-content: center;
+  }
+  
+  #card_shelter{
+	z-index: 0;
+  }
+  
+  #card_police{
+	display: none;
+	z-index: 2;
+  }
+  
+  #card_injury{
+	display: none;
+	z-index: 1;
+  }
+  #card_university{
+	display: none;
+	z-index: 3;
+  }
+  #card_hotline{
+	/*visibility: hidden;*/
+	display: none;
+	font-size: 20px !important;
+	z-index: 4;
+  }
+  .reset_nav{
+	display: flex;
+	z-index: 6;
+	justify-content: center;
+  }
+  
+  .myButton {
+	  box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	  background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	  background-color:#3d94f6;
+	  border-radius:6px;
+	  border:1px solid #337fed;
+	  display:inline-block;
+	  cursor:pointer;
+	  color:#ffffff;
+	  font-family:Arial;
+	  font-size:15px;
+	  font-weight:bold;
+	  padding:6px 24px;
+	  text-decoration:none;
+	  text-shadow:0px 1px 0px #1570cd;
+	margin: 3px;
+  }
+  .myButton:hover {
+	  background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	  background-color:#1e62d0;
+  }
+  .myButton:active {
+	  position:relative;
+	  top:1px;
+  }
+  
+  .backButton {
+	  box-shadow:inset 0px 1px 0px 0px #fff6af;
+	  background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	  background-color:#ffec64;
+	  border-radius:6px;
+	  border:1px solid #ffaa22;
+	  display:inline-block;
+	  cursor:pointer;
+	  color:#333333;
+	  font-family:Arial;
+	  font-size:15px;
+	  font-weight:bold;
+	  padding:6px 24px;
+	  text-decoration:none;
+	  text-shadow:0px 1px 0px #ffee66;
+	margin: 3px;
+  }
+  .backButton:hover {
+	  background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	  background-color:#ffab23;
+  }
+  .backButton:active {
+	  position:relative;
+	  top:1px;
+  }
+  
+  .navbar {
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	
+	background-color: #FEC76D;
+	
+	/*position: fixed;*/
+	top: 0;
+	width: 100%;
+  }
+  
+  .navbar a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+  }
+  
 </style>
 
 <script>
+  //Passing Array to Next Page & Clear Local
+localStorage.clear();
+var qn_arr = [];
+
 function hidedisp(id) {
   //document.getElementById(id).style.visibility = "hidden";
   if (id == "1.1") {
-    alert("Call the police and get medical care.");
-    
-    ga('send', 'event', 'QuickNav', 'click', 'Yes_Police');
-    //Yes police
-  } else if (id == "1.2" || id == "1.3") {
-    var gp = document.getElementById(id).parentNode.parentNode.id;
-
-    //No police
-    document.getElementById(gp).style.visibility = "hidden";
-    card_injury.style.visibility = "visible";
-    
-    ga('send', 'event', 'QuickNav', 'click', 'No_Police');
-  } else if (id == "2.1" || id == "2.2") {
-    var gp = document.getElementById(id).parentNode.parentNode.id;
-    //Yes injured
-    document.getElementById(gp).style.visibility = "hidden";
-    card_shelter.style.visibility = "visible";
-
-    ga('send', 'event', 'QuickNav', 'click', 'Yes_Injured');
-  } else if (id == "2.3") {
-    var gp = document.getElementById(id).parentNode.parentNode.id;
-    //No injury
-    alert("It's still recommended to get a medical appointment, even if you are uninjured.")
-    document.getElementById(gp).style.visibility = "hidden";
-    card_legal.style.visibility = "visible";
-    
-    ga('send', 'event', 'QuickNav', 'click', 'No_Injured');
-  } else if (id == "3.1") {
-    //Yes shelter
-    alert("Shelter contact & medical services");
-    
-    ga('send', 'event', 'QuickNav', 'click', 'Yes_Injured_Yes_Shelter');
-  } else if (id == "3.2") {
-    //Yes shelter
-    alert("UVA Medical services");
-    
-    ga('send', 'event', 'QuickNav', 'click', 'Yes_Injured_No_Shelter');
-  } else if (id == "4.1" || id == "4.2") {
-    //Yes lawyer
-    alert("Lawyer Up!");
-    
-    ga('send', 'event', 'QuickNav', 'click', 'Yes_Lawyer');
-  } else if (id == "4.3") {
-    var gp = document.getElementById(id).parentNode.parentNode.id;
-    //No lawyer
-    document.getElementById(gp).style.visibility = "hidden";
-    card_university.style.visibility = "visible";
-    
-    ga('send', 'event', 'QuickNav', 'click', 'No_Lawyer');
-  } else if (id == "5.1") {
-    //Yes university
-    alert("Dean of Students");
-    
-    ga('send', 'event', 'QuickNav', 'click', 'Yes_University');
-  } else if (id == "5.2" || id == "5.3") {
-    //Yes university
-    alert("Confidential Advocate");
-
-    ga('send', 'event', 'QuickNav', 'click', 'No_University');
+    //Yes, I'm Safe
+    card_police.style.display = "inherit";
+    card_shelter.style.display = "none";
+  	card_police.scrollIntoView(false);
+  } else if (id == "1.2") {
+  //Pass Shelter if not in pass array
+  if (qn_arr.includes("Shelter") == false) {
+    qn_arr.push("Shelter");
+    console.log(qn_arr);
   }
+
+  //I'm not safe
+  card_police.style.display = "inherit";
+  card_police.scrollIntoView(false);
+  card_shelter.style.display = "none";
+
+  } else if (id == "2.1" || id =="2.2") {
+    alert("Do not throw away or clean any evidence. If possible, do not shower.");
+    card_injury.style.display = "inherit";
+    card_injury.scrollIntoView(false);
+    card_police.style.display = "none";
+    
+    //Pass Police if not in pass array
+    if (qn_arr.includes("Police") == false){
+    qn_arr.push("Police");
+    console.log(qn_arr);
+    }
+  } else if (id == "2.3") {
+    //var gp = document.getElementById(id).parentNode.parentNode.id;
+    //Yes but not now, No police
+    
+    //document.getElementById(gp).style.visibility = "hidden";
+    card_injury.style.display = "inherit";
+    card_injury.scrollIntoView(false);
+    card_police.style.display = "none";
+  
+  } else if (id == "3.1") {
+    card_university.style.display = "inherit";
+    card_university.scrollIntoView(false);
+    card_injury.style.display = "none";
+    
+    //Pass Medical if not in pass array
+    if (qn_arr.includes("Medical") == false){
+    qn_arr.push("Medical");
+    qn_arr.push("Emergency");
+    console.log(qn_arr);
+    }
+    
+  } else if (id == "3.2" || id == "3.3") {
+    //Not sure, No Medical Attention
+    alert("Not all injuries are visible and it is still highly recommended to seek medical attention.");
+    
+    qn_arr.push("Medical");
+    //var gp = document.getElementById(id).parentNode.parentNode.id;
+    //document.getElementById(gp).style.visibility = "hidden";
+    card_university.style.display = "inherit";
+    card_university.scrollIntoView(false);
+    card_injury.style.display = "none";
+    
+  } else if (id == "4.1") {
+    card_hotline.style.display = "inherit";
+    card_hotline.scrollIntoView(false);
+    
+    //Pass Confidential Advocate, Legal Advocate if not in pass array
+    if (qn_arr.includes("Advocate") == false){
+    qn_arr.push("Advocate");
+    console.log(qn_arr);
+    }
+    
+  } else if (id == "4.2" || id == "4.3") {
+    card_hotline.style.display = "inherit";
+    card_hotline.scrollIntoView(false);
+    
+    //Pass Confidential Advocate if not in pass array
+    if (qn_arr.includes("Advocate") == false){
+    qn_arr.push("Advocate");
+    console.log(qn_arr);
+    }
+    
+    
+  } 
 }
 
-//Not all backs work the way we want
 function goback(id) {
   //var prev = id - 1;
   var gp = document.getElementById(id).parentNode.parentNode.id;
   var prev_gp = document.getElementById(id).parentNode.parentNode.previousElementSibling.id;
-  document.getElementById(gp).style.visibility = "hidden"
-  document.getElementById(prev_gp).style.visibility = "visible"
-
-  ga('send', 'event', 'QuickNav', 'click', 'GoBack');
+  document.getElementById(gp).style.display = "none";
+  document.getElementById(prev_gp).style.display = "inherit";
+  document.getElementById(prev_gp).scrollIntoView(false);
 }
 
 function reset() {
   location.reload();
-  ga('send', 'event', 'QuickNav', 'click', 'QN_Restart');
 }
+
+function navdisp(id) {
+  if (id == "ShelterGo") {
+    $(".qcard").hide();
+    card_shelter.style.display = "inherit";
+  } else if (id == "PoliceGo") {
+    $(".qcard").hide();
+    card_police.style.display = "inherit";
+  } else if (id == "MedicalGo") {
+    $(".qcard").hide();
+    card_injury.style.display = "inherit";
+  } else if (id == "UniversityGo") {
+    $(".qcard").hide();
+    card_university.style.display = "inherit";
+  }
+  
+  }
+
+function sendTo() {
+//Pass QN Array
+  localStorage.setItem("qn_arr", JSON.stringify(qn_arr));
+  console.log(localStorage);
+  window.location = "qn_report.html"; 
+}
+
 </script>
 
 
-
-
-
-
-
-
 </html>
-

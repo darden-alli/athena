@@ -1,12 +1,13 @@
 //Passing Array to Next Page & Clear Local
-var qn_arr = [];
 localStorage.clear();
+var qn_arr = [];
 
 function hidedisp(id) {
   //document.getElementById(id).style.visibility = "hidden";
   if (id == "1.1") {
     //Yes, I'm Safe
-    card_police.style.visibility = "visible";
+    card_police.style.display = "inherit";
+    card_shelter.style.display = "none";
   	card_police.scrollIntoView(false);
   } else if (id == "1.2") {
   //Pass Shelter if not in pass array
@@ -16,13 +17,15 @@ function hidedisp(id) {
   }
 
   //I'm not safe
-  card_police.style.visibility = "visible";
+  card_police.style.display = "inherit";
   card_police.scrollIntoView(false);
+  card_shelter.style.display = "none";
 
   } else if (id == "2.1" || id =="2.2") {
-    alert("Call the police and get medical care. Do not throw away or clean any evidence.");
-    card_injury.style.visibility = "visible";
+    alert("Do not throw away or clean any evidence. If possible, do not shower.");
+    card_injury.style.display = "inherit";
     card_injury.scrollIntoView(false);
+    card_police.style.display = "none";
     
     //Pass Police if not in pass array
     if (qn_arr.includes("Police") == false){
@@ -34,12 +37,14 @@ function hidedisp(id) {
     //Yes but not now, No police
     
     //document.getElementById(gp).style.visibility = "hidden";
-    card_injury.style.visibility = "visible";
+    card_injury.style.display = "inherit";
     card_injury.scrollIntoView(false);
+    card_police.style.display = "none";
   
   } else if (id == "3.1") {
-    card_university.style.visibility = "visible";
+    card_university.style.display = "inherit";
     card_university.scrollIntoView(false);
+    card_injury.style.display = "none";
     
     //Pass Medical if not in pass array
     if (qn_arr.includes("Medical") == false){
@@ -50,16 +55,17 @@ function hidedisp(id) {
     
   } else if (id == "3.2" || id == "3.3") {
     //Not sure, No Medical Attention
-    alert("Not all injuries are visible and you should still seek medical attention.");
+    alert("Not all injuries are visible and it is still highly recommended to seek medical attention.");
     
     qn_arr.push("Medical");
     //var gp = document.getElementById(id).parentNode.parentNode.id;
     //document.getElementById(gp).style.visibility = "hidden";
-    card_university.style.visibility = "visible";
+    card_university.style.display = "inherit";
     card_university.scrollIntoView(false);
+    card_injury.style.display = "none";
     
   } else if (id == "4.1") {
-    card_hotline.style.visibility = "visible";
+    card_hotline.style.display = "inherit";
     card_hotline.scrollIntoView(false);
     
     //Pass Confidential Advocate, Legal Advocate if not in pass array
@@ -69,7 +75,7 @@ function hidedisp(id) {
     }
     
   } else if (id == "4.2" || id == "4.3") {
-    card_hotline.style.visibility = "visible";
+    card_hotline.style.display = "inherit";
     card_hotline.scrollIntoView(false);
     
     //Pass Confidential Advocate if not in pass array
@@ -82,13 +88,12 @@ function hidedisp(id) {
   } 
 }
 
-//Not all backs work the way we want
 function goback(id) {
   //var prev = id - 1;
   var gp = document.getElementById(id).parentNode.parentNode.id;
   var prev_gp = document.getElementById(id).parentNode.parentNode.previousElementSibling.id;
-  document.getElementById(gp).style.visibility = "hidden"
-  document.getElementById(prev_gp).style.visibility = "visible"
+  document.getElementById(gp).style.display = "none";
+  document.getElementById(prev_gp).style.display = "inherit";
   document.getElementById(prev_gp).scrollIntoView(false);
 }
 
@@ -98,17 +103,17 @@ function reset() {
 
 function navdisp(id) {
   if (id == "ShelterGo") {
-    card_shelter.scrollIntoView(false);
-    //Display Police
+    $(".qcard").hide();
+    card_shelter.style.display = "inherit";
   } else if (id == "PoliceGo") {
-    card_police.style.visibility = "visible";
-    card_police.scrollIntoView(false);
+    $(".qcard").hide();
+    card_police.style.display = "inherit";
   } else if (id == "MedicalGo") {
-    card_injury.style.visibility = "visible";
-    card_injury.scrollIntoView(false);
+    $(".qcard").hide();
+    card_injury.style.display = "inherit";
   } else if (id == "UniversityGo") {
-    card_university.style.visibility = "visible";
-    card_university.scrollIntoView(false);
+    $(".qcard").hide();
+    card_university.style.display = "inherit";
   }
   
   }
@@ -119,7 +124,3 @@ function sendTo() {
   console.log(localStorage);
   window.location = "qn_report.html"; 
 }
-
-
-
-

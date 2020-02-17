@@ -20,26 +20,26 @@
 	justify-content: center;
   }
   
-  #card_police{
-	visibility: hidden;
-	z-index: 2;
-  }
-  
-  #card_injury{
-	visibility: hidden;
-	z-index: 1;
-  }
-  
   #card_shelter{
 	z-index: 0;
   }
   
+  #card_police{
+	display: none;
+	z-index: 2;
+  }
+  
+  #card_injury{
+	display: none;
+	z-index: 1;
+  }
   #card_university{
-	visibility: hidden;
+	display: none;
 	z-index: 3;
   }
   #card_hotline{
-	visibility: hidden;
+	/*visibility: hidden;*/
+	display: none;
 	font-size: 20px !important;
 	z-index: 4;
   }

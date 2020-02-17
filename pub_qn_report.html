@@ -1,0 +1,129 @@
+<html>
+<head>
+    <body onload="generate_report();"></body>
+</head>
+
+<div id="card_canvas">
+    <div class="reportCard" id="Shelter">
+        <div>
+            <a href="https://www.shelterforhelpinemergency.org/shelter-tour">
+            <img src="https://www.shelterforhelpinemergency.org/images/logo/logo.png" title="Shelter Logo" alt="SHE"></a>
+        </div>
+        
+        <div>
+        <p>
+          24/7 Shelter Hotline
+          <br><b>434-293-8509</b>
+          <br>"I need a place to stay."
+        </p>
+        </div>
+
+    </div>
+
+    <div class="reportCard" id="Police">
+        <div>
+            <a href="https://uvapolice.virginia.edu/staff">
+                <img src="https://pbs.twimg.com/profile_images/1042851259970072576/kJoC3a1C_400x400.jpg" title="UVA Police" 
+                alt="UVAPolice" width=70%></a>
+        </div>
+    
+    <div>
+        <p>
+            Sgt. Ben Rexrode
+            <br><b>434-924-8845</b>
+            <br>"I'd like to report a sexual assault."
+        </p>
+    </div>
+    
+    </div>
+
+    <div class="reportCard" id="Medical">
+        <div>
+            <a href="https://uvahealth.com/services/forensic-exams">
+                <img src="https://uvahealth.com/themes/custom/uva/logo.svg" title="UVA Health"
+                    alt="UVAHealth"></a>
+        </div>
+    
+        <div>
+            <p>
+                Appointment Scheduler
+                <br><b>434-924-0000</b>
+                <br>"I'd like to schedule an appointment."
+                <br><a href="https://www.healthyhoos.virginia.edu/">Online Scheduler</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="reportCard" id="Emergency">
+        <div>
+            <a href="https://uvahealth.com/locations/profile/emergency-department">
+                <img src="https://med.virginia.edu/emergency-medicine/wp-content/uploads/sites/232/2018/08/7583906160_IMG_0116-768x294.jpg" title="UVA Emergency"
+                    alt="Emergency"></a>
+        </div>
+    
+        <div>
+            <p>
+                Emergency Room
+                <br>24/7 Walk-In
+                <br><b>434-924-2231</b>
+                <br>"I'd like medical attention for a sexual assault."
+            </p>
+        </div>
+    </div>
+
+    <div class="reportCard" id="Advocate">
+        <div>
+            <a href="https://womenscenter.virginia.edu/confidential-advocates">
+                <img src="https://womenscenter.virginia.edu/sites/womenscenter.virginia.edu/files/womens-center-logo.jpg" 
+                title="UVA Women's Center" alt="WomensCenter"></a>
+        </div>
+    
+        <div>
+            <p>
+                Claire Kaplan
+                <br><b>434-982-2774</b>
+                <br>"I'd like to speak to an advocate."
+                <br>cnk2r@virginia.edu
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<style>
+.card_canvas{
+  position: static;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 36px;
+  font-family: Poppins;
+}
+
+.reportCard{
+  display:none;
+	position: static;
+	text-align: center;
+	border-bottom: 4px #FEC76D solid;
+	font-size: 30px;
+  font-family: Poppins;
+  justify-content: space-evenly;
+  align-items: center;
+  }
+</style>
+
+<script>
+    function generate_report(){
+    qn_get = JSON.parse(localStorage.getItem("qn_arr"));
+    for (var c in qn_get) {
+        //console.log(qn_get[c]);
+        var x = document.getElementById(qn_get[c]);
+        console.log(x);
+        //x.display = "block";
+        x.style.display = "flex";
+        
+    }
+}
+</script>
+
+
+</html>

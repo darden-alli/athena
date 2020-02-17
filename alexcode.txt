@@ -1,0 +1,15 @@
+jQuery(document).ready(function($) {
+  var drugChecked = localStorage.getItem("autoDrug");
+  
+  doga('found', 'symptoms', drugChecked, 'none');
+  
+  $(".print").on("click", function() {
+    //send event to GA to record print action
+    console.log('print-a-rino for the ' + drugChecked);
+    doga('save', 'print', drugChecked, 'none');
+  });
+
+  function doga(category, action, label, value) {
+    console.log('the event params are ' + category + action + label + value);
+    gtag('event', action, {
+}
